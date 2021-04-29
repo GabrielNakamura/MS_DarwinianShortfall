@@ -51,5 +51,19 @@ PD_deficit_all <- lapply(phy_perBasin, function(x) PD_defict(phylo = x,
                                            data = insertions_allDrainages, 
                                            level = "Congeneric_insertion")
        )
+PD_deficit_Siluriformes <- lapply(phy_perBasin, function(x) PD_defict(phylo = x, 
+                                                             data = insertions_allDrainages[which(insertions_allDrainages$o == "Siluriformes"), ], 
+                                                             level = "Congeneric_insertion")
+)
 
+PD_deficit_Characiformes <- lapply(phy_perBasin, function(x) PD_defict(phylo = x, 
+                                                                      data = insertions_allDrainages[which(insertions_allDrainages$o == "Characiformes"), ], 
+                                                                      level = "Congeneric_insertion")
+)
+
+PD_deficit_Cichliformes <- lapply(phy_perBasin, function(x) PD_defict(phylo = x, 
+                                                                       data = insertions_allDrainages[which(insertions_allDrainages$o == "Cichliformes"), ], 
+                                                                       level = "Congeneric_insertion")
+)
+saveRDS(PD_deficit_all, file = here::here("output", "PD_deficit_all.rds"))
 
